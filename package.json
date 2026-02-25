@@ -1,0 +1,17 @@
+{
+  "name": "the-clone-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "dev:backend": "npm run dev -w apps/backend",
+    "build:backend": "npm run build -w apps/backend",
+    "lint:backend": "npm run lint -w apps/backend",
+    "test:backend": "npm run test -w apps/backend"
+  }
+}
