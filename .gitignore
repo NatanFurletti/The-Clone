@@ -1,0 +1,39 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Build outputs
+dist/
+build/
+coverage/
+.temp/
+.tmp/
+.cache/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# SO
+.DS_Store
+Thumbs.db
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+
+# Docker
+docker-data/
+
+
