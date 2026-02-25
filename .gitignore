@@ -9,31 +9,37 @@ package-lock.json
 # Build outputs
 dist/
 build/
-coverage/
-.temp/
-.tmp/
+.out/
+.next/
 .cache/
+.eslintcache
+coverage/
+
+# Envs e segredos
+.env
+.env.*
+!.env.example
 
 # Logs
 logs/
 *.log
 *.log.*
+log/
 
-# Ambiente
-.env
-.env.*
-!.env.example
-
-# SO
+# IDEs/OS
 .DS_Store
 Thumbs.db
-
-# IDE/Editor
 .vscode/
 .idea/
-*.swp
 
 # Docker
 docker-data/
+*.pid
 
+# Prisma
+# (Deixe as migrações versionadas; não ignore)
+# prisma/migrations/
 
+# Outros
+tmp/
+temp/
