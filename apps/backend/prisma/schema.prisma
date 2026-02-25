@@ -1,12 +1,19 @@
+// apps/backend/prisma/schema.prisma
+
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+
+  // Atenção: NÃO defina mais 'url' aqui.
+  // A conexão será passada ao PrismaClient via adapter ou accelerateUrl no código.
 }
 
+// Exemplo de modelo simples para criarmos a migração
 model User {
   id        String   @id @default(cuid())
   email     String   @unique

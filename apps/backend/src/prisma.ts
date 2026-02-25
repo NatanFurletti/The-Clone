@@ -1,12 +1,17 @@
-import { PrismaClient } from "@prisma/client";
-import { logger } from "./logger";
+import { PrismaClient } from "../../generated/prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
-export const prisma = new PrismaClient();
+const databaseUrl = process.env.DATABASE_URL;
 
-prisma.$on("error", (e) => {
-  logger.error({ e }, "Prisma error");
-});
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL não está definida no .env do backend");
+}
 
-process.on("beforeExit", async () => {
-  await prisma.$disconnect();
+const pool = new Pool({ connectionString: databaseUrl });
+
+const adapter = new PrismaPg(pool);
+
+export const prisma = new PrismaClient({
+  adapter,
 });
